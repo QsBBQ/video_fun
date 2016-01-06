@@ -1,0 +1,33 @@
+
+-Example found
+http://nbviewer.ipython.org/github/bigsnarfdude/PythonSystemAdminTools/blob/master/pcap.ipynb
+https://support.riverbed.com/apis/steelscript/SharkFest2014.slides.html
+
+-tshark
+https://www.wireshark.org/docs/dfref/f/frame.html
+
+tshark -n -r video_multicast.pcap
+
+# tshark has lots of nice flags for example for the conversations
+# This provides ip, tcp, udp conversations
+-z conv,ip
+-z conv,tcp
+-z conv,udp
+# this provides general summary
+tshark -n -r video_multicast.pcap -q -z io,stat,0
+
+syntax to specify fields
+tshark -n -r video_multicast.pcap -T fields -e frame.number -e frame.time -e frame.time_relative -e ip.src -e ip.dst -e udp.port -e tcp.port -e frame.len -E header=y
+
+-e udp.srcport -e tcp.srcport
+
+# Goals
+  -pcap
+    -keeping the nanosecond from the pcap
+    -Find millisecond microburst and conversations causing burst.
+    -Find all conversations
+    -filter on particular conversation
+    -Filter on timeframe and give microburst stats and conversations
+    -Filter on conversations and find burst.
+    -Find max millisecond burst in bits/sec for sec and traffic for that millisecond
+    -Add directional lists.
