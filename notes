@@ -28,9 +28,10 @@ tshark -n -r video_multicast.pcap -T fields -e frame.number -e frame.time -e fra
 
 # Goals
   -pcap
-    -keeping the nanosecond from the pcap
+    -keeping the nanosecond from the pcap -DONE
     -Find millisecond microburst and conversations causing burst.
     -Find all conversations
+    -find all udp or all tcp
     -filter on particular conversation
     -Filter on timeframe and give microburst stats and conversations
     -Filter on conversations and find burst.
